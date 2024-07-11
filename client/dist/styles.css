@@ -1,0 +1,46 @@
+.main{
+  width: 500px;
+  margin: auto;
+}
+
+.score{
+  text-align: center;
+}
+
+.question{
+  text-align: center;
+}
+
+.mons{
+  text-align: center;
+}
+
+.mon{
+  display: inline-block;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 100px;
+}
+
+.monImg{
+  display: grid;
+}
+
+.monButton{
+  display: grid;
+  width: 100px;
+}
+
+.playButton{
+  display: block;
+  text-align: center;
+}
+
+.pgMon{
+  display: inline-block;
+  width: 200px;
+}
+
+.statList{
+  text-align: left;
+}
