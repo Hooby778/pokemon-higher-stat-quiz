@@ -3,6 +3,7 @@ import axios from 'axios';
 
 var pokemon1;
 var pokemon2;
+var oldRandStat;
 
 function App () {
   function getRandomInt(max) {
@@ -48,6 +49,7 @@ function App () {
                   axios.patch('/pokemon', {"HP": score})
                   setHighScore(score);
                 }
+                oldRandStat = randStat;
                 setEndScreen(true);
               }
             }}>{pokemon1.Name}</button>
@@ -85,23 +87,29 @@ function App () {
           <div className="pgMon">
             <img src={pokemon1.Photo}></img>
             <ul className="statList">
-              <li>HP: {pokemon1.HP}</li>
-              <li>Attack: {pokemon1.Attack}</li>
-              <li>Defense: {pokemon1.Defense}</li>
-              <li>Special Attack: {pokemon1['Special Attack']}</li>
-              <li>Special Defense: {pokemon1['Special Defense']}</li>
-              <li>Speed: {pokemon1.Speed}</li>
+              {
+                stats.map((item) => {
+                  if (item === oldRandStat) {
+                    return <li><b>{`${item}: ${pokemon1[item]}`}</b></li>
+                  } else {
+                    return <li>{`${item}: ${pokemon1[item]}`}</li>
+                  }
+                })
+              }
             </ul>
           </div>
           <div className="pgMon">
           <img src={pokemon2.Photo}></img>
             <ul className="statList">
-              <li>HP: {pokemon2.HP}</li>
-              <li>Attack: {pokemon2.Attack}</li>
-              <li>Defense: {pokemon2.Defense}</li>
-              <li>Special Attack: {pokemon2['Special Attack']}</li>
-              <li>Special Defense: {pokemon2['Special Defense']}</li>
-              <li>Speed: {pokemon2.Speed}</li>
+            {
+                stats.map((item) => {
+                  if (item === oldRandStat) {
+                    return <li><b>{`${item}: ${pokemon2[item]}`}</b></li>
+                  } else {
+                    return <li>{`${item}: ${pokemon2[item]}`}</li>
+                  }
+                })
+              }
             </ul>
           </div>
         </div>
