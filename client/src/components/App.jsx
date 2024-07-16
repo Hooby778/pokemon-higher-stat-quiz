@@ -23,8 +23,8 @@ function App () {
     })
   }, []);
   if (!endScreen){
-    pokemon1 = pokemonList[getRandomInt(pokemonList.length)];
-    pokemon2 = pokemonList[getRandomInt(pokemonList.length)];
+    pokemon1 = pokemonList[getRandomInt(pokemonList.length - 1)];
+    pokemon2 = pokemonList[getRandomInt(pokemonList.length - 1)];
   }
   const [score, setScore] = React.useState(0);
   const [highScore, setHighScore] = React.useState(0);
@@ -36,7 +36,7 @@ function App () {
       <div className="main">
         <p className="score">High Score: {highScore}</p>
         <p className="score">Current Score: {score}</p>
-        <h2 className="question">Which Pokemon has the higher {randStat}?</h2>
+        <h1 className="question">Which Pokemon has the higher {randStat}?</h1>
         <div className="mons">
           <div className="mon">
             <img className="monImg" src={pokemon1.Photo}></img>
@@ -72,7 +72,7 @@ function App () {
   } else if (pokemon1 && pokemon2 && endScreen) {
     return (
       <div className="main">
-        <h2 className="question">Nice Try!</h2>
+        <h1 className="question">Nice Try!</h1>
         <p className="score">High Score: {highScore}</p>
         <p className="score">Your Score: {score}</p>
         <div className="playButton">
